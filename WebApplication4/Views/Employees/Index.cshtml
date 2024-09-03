@@ -1,0 +1,37 @@
+﻿@model IEnumerable<User>
+
+@* <a href="/Employees/Create" class="btn btn-outline-danger">New</a> *@
+<h1>All Employees</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.UserId)</td>
+            <td>@Html.DisplayNameFor(model => model.UserName)</td>
+            <td>@Html.DisplayNameFor(model => model.Password)</td>
+            <td>@Html.DisplayNameFor(model => model.CreateAt)</td>
+            <td>@Html.DisplayNameFor(model => model.isActive)</td>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserId </td>
+                <td>@item.UserName</td>
+                <td>@item.Password</td>
+                <td>@item.CreateAt</td>
+                <td>
+                    <a asp-controller="Users" asp-action="Active" asp-route-id="@item.UserId">Active</a>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
